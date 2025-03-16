@@ -1,9 +1,9 @@
 language = "c"
-run = "gcc -o main /home/runner/project2/src/main.c"
+run = "gcc -o main /home/runner/lab2-task1-gr10-lasyi/src/main.c"
 modules = ["c-clang14"]
 
 [deployment]
-run = ["sh", "-c", "gcc -o main /home/runner/project2/src/main.c"]
+run = ["sh", "-c", "gcc -o main /home/runner/lab2-task1-gr10-lasyi/src/main.c"]
 
 [nix]
 channel = "stable-24_05"
