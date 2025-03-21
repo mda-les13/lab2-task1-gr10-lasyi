@@ -1,6 +1,8 @@
 /* hello.c */
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 bool has_unique_digits(int num) {
   int digits[10] = {0};
@@ -17,16 +19,27 @@ bool has_unique_digits(int num) {
   return true;
 }
 
-int main(void) {
-  int n;
-  printf("Введите количество элементов в массиве: ");
-  scanf("%d", &n);
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Использование: %s <размер_массива>\n", argv[0]);
+    return 1;
+  }
+
+  int n = atoi(argv[1]);
+  if (n <= 0) {
+    printf("Размер массива должен быть положительным числом.\n");
+    return 1;
+  }
+
+  srand(time(NULL));
 
   int arr[n];
-  printf("Введите элементы массива:\n");
+  printf("Исходные данные:\n");
   for (int i = 0; i < n; i++) {
-    scanf("%d", &arr[i]);
+    arr[i] = rand() % 10000;
+    printf("%d ", arr[i]);
   }
+  printf("\n");
 
   int count = 0;
   for (int i = 0; i < n; i++) {
